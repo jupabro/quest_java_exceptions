@@ -3,13 +3,21 @@ import java.util.ArrayList;
 public class OddSum {
 
     public static void main(String[] args) {
-        run(args, false);
+       try {
+            int result = run(args, false);
+            System.out.println("Sum of odd elements : " + result);
+        } catch (NumberFormatException e) {
+            System.err.println("Error: One or more input values is not a valid integer.");
+        } catch (Exception e) {
+            System.err.println("An unexpected error occurred: " + e.getMessage());
+        }
+        System.out.println("END!");
     }
 
     public static int run(String[] args, boolean test) {
 
         ArrayList<Integer> listInt = new ArrayList<>();
-        int res;
+        
         if (!test) {
             System.out.println("Elements' list :");
             for (String v : args)
@@ -20,15 +28,7 @@ public class OddSum {
             listInt.add(Integer.parseInt(args[i]));
         }
 
-        res = sum(listInt);
-        if (test) {
-            return res;
-        }
-
-        System.out.println("Sum of odd elements : " + res);
-        System.out.println("END!");
-
-        return 0;
+        return = sum(listInt);
     }
 
     public static int sum(ArrayList<Integer> listInt) {
